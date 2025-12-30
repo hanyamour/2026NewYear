@@ -1,0 +1,214 @@
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#b31a1a;
+  font-family: Arial, sans-serif;
+  overflow:hidden;
+  height:100vh;
+  color:white;
+}
+
+/* canvas full layar */
+canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* screen full, center */
+.screen{
+  display:none;
+  width:100vw;
+  height:100vh;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.screen.active{ display:flex; }
+
+/* =========================
+   WRAPPER: pusat scale
+   (INI KUNCI "TETEP GITU")
+========================= */
+.stage-wrap{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* =========================
+   STAGE = ukuran desain FIX
+   lalu kita SCALE sesuai layar
+========================= */
+.stage{
+  position:relative;
+  width:520px;      /* ukuran desain laptop */
+  height:560px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  text-align:center;
+  z-index:5;
+
+  /* scale otomatis: makin kecil layar, makin kecil stage */
+  transform: scale(
+    min(
+      1,
+      calc(100vw / 520),
+      calc(100vh / 560)
+    )
+  );
+  transform-origin:center;
+}
+
+/* =========================
+   CARD
+========================= */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:320px;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+  position:relative;
+  z-index:5;
+}
+
+/* judul Haloo! */
+#first .card h1{
+  color:#b31a1a;
+  margin-top:40px;
+  font-size:32px;
+}
+
+/* glass effect halaman 3 */
+#third .card{
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+
+/* pesan halaman 3 */
+#mainMessage{
+  color:#fff;
+  font-size:16px;
+  line-height:1.6;
+  text-align:left;
+  margin-top:15px;
+  min-height:120px;
+}
+
+/* input + button */
+input{
+  width:90%;
+  padding:12px;
+  margin:20px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  text-align:center;
+  font-size:16px;
+}
+
+button{
+  background:#b31a1a;
+  color:white;
+  border:none;
+  padding:12px 35px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn-white{
+  background:white;
+  color:#b31a1a;
+  animation:pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow{
+  0%{transform:scale(1); box-shadow:0 0 0 0 rgba(255,255,255,.7);}
+  70%{transform:scale(1.05); box-shadow:0 0 0 15px rgba(255,255,255,0);}
+  100%{transform:scale(1); box-shadow:0 0 0 0 rgba(255,255,255,0);}
+}
+
+/* =========================
+   HIASAN (POSISI FIX)
+   Karena stage fixed-size, posisinya konsisten.
+========================= */
+.header-img{
+  position:absolute;
+  width:225px;
+  top:-12%;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  pointer-events:none;
+}
+
+.deco{ position:absolute; z-index:10; pointer-events:none; }
+
+.deco1{
+  width:145px;
+  top:17%;
+  right:6%;
+  transform:rotate(15deg);
+}
+.deco2{
+  width:150px;
+  bottom:8%;
+  left:7%;
+}
+.deco3{
+  width:65px;
+  bottom:13%;
+  left:22%;
+  animation:spin 5s linear infinite;
+}
+
+@keyframes spin{ from{transform:rotate(0);} to{transform:rotate(360deg);} }
+
+/* typography */
+.edwardian{
+  font-size:70px;
+  font-family:'Edwardian Script ITC',cursive;
+  margin:0;
+  text-shadow:0 0 15px gold;
+}
+
+.nexa-gold{
+  color:#ffd700;
+  font-size:35px;
+  font-weight:bold;
+  margin:0;
+  text-shadow:0 0 10px rgba(242,205,177,.7);
+}
+
+/* penutup */
+.smooth-fade{
+  font-size:26px;
+  line-height:1.6;
+  animation:fadeLux 3s forwards;
+}
+@keyframes fadeLux{
+  from{opacity:0;filter:blur(15px);transform:scale(.8);}
+  to{opacity:1;filter:none;transform:scale(1);}
+}
+
+/* watermark */
+.watermark{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  opacity:.4;
+  font-size:12px;
+  z-index:20;
+}

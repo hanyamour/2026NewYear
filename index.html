@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Year Greeting 2026</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="fireworks"></canvas>
+
+  <!-- ================= SCREEN 1 ================= -->
+  <div id="first" class="screen active">
+    <div class="stage-wrap">
+      <div class="stage">
+        <img src="Haloo!_20251229_214214_0003.png" class="header-img" alt="clip">
+
+        <div class="card">
+          <h1>Haloo!</h1>
+          <input type="text" id="nameInput" placeholder="Masukkan namamu..." />
+          <button onclick="goToSecond()">Next</button>
+        </div>
+
+        <img src="Haloo!_20251229_215253_0000.png" class="deco deco1" alt="deco1">
+        <img src="Haloo!_20251229_215254_0001.png" class="deco deco2" alt="deco2">
+        <img src="Haloo!_20251229_214214_0004.png" class="deco deco3" alt="deco3">
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 2 ================= -->
+  <div id="second" class="screen">
+    <div class="stage-wrap">
+      <div class="stage">
+        <h2 class="nexa-gold">2026</h2>
+        <h1 class="edwardian">Happy New Year</h1>
+        <h2
+          id="displayName"
+          class="nexa-gold"
+          style="text-transform: uppercase;"
+        ></h2>
+        <button class="btn-white" onclick="showScreen('third')">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 3 ================= -->
+  <div id="third" class="screen">
+    <div class="stage-wrap">
+      <div class="stage">
+        <div class="card">
+          <h2
+            id="greetName"
+            style="color:#ffd700; margin-bottom:0;"
+          ></h2>
+          <p id="mainMessage"></p>
+        </div>
+
+        <button class="btn-white" onclick="showScreen('fourth')">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 4 ================= -->
+  <div id="fourth" class="screen">
+    <div class="stage-wrap">
+      <div class="stage">
+        <h1 class="smooth-fade">
+          Thank you<br>
+          See you next time
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="watermark">@hanyiic</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
